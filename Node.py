@@ -2,6 +2,7 @@ class Node:
     def __init__(self, state):
         self.state = state
         self.zero_pos = None
+        self.length = len(self.state) #taking this will help us to change the code for other puzzle as well
         self.find_zero()
 
         self.f_cost = 0
@@ -16,8 +17,8 @@ class Node:
 
     #now we will find the index in grid with zero in it
     def find_zero(self):
-        for i in range(3):
-            for j in range(3):
+        for i in range(self.length):
+            for j in range(self.length):
                 if self.state[i][j] == 0:
                     self.zero_pos = (i, j)
 
@@ -48,4 +49,3 @@ class Node:
 
     def get_h_cost(self):
         return self.h_cost
-
