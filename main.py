@@ -22,7 +22,24 @@ class Puzzle(object):
                 r = input('Enter row ' + str(i+1) + '(give a space between each number, enter only three numbers per row(for 8 puzzle) then press enter):')
                 puzzleMat.append(r.split(' '))
 
-        print(puzzleMat)
+        # print(puzzleMat)
+
+        print("""Select the Algorithm that you want to use:
+                1. Uniform Cost Search
+                2. A* with the Misplaced Tile Heuristic
+                3. A* with the Manhattan Distance Heuristic""")
+        selectedAlgorithm = input('Select any one of the above option:')
+
+        while True:
+            if selectedAlgorithm == "1":
+            
+            elif selectedAlgorithm == "2":
+
+            elif selectedAlgorithm == "3":
+
+            else:
+                selectedAlgorithm = input("wrong input entered, retry with valid algorithm option:")
+
 
 if __name__ == '__main__':
   Puzzle().main()
