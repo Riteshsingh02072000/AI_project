@@ -32,6 +32,14 @@ class Node:
         for row in self.state:
             print(" ".join(str(x) for x in row))
     
+    def get_row_col(self, state, num):
+        row = 0
+        while num >= self.width:
+            num -= self.width
+            row += 1
+        col = num
+        return row, col
+
     def set_f_cost(self, f_cost):
         self.f_cost = f_cost
     
