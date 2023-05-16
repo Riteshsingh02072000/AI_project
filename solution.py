@@ -63,7 +63,7 @@ class Solution(object):
                 print(f"Number of expanded nodes: {num_nodes_expanded}.")
                 print(f"The maximum queue size: {max_frontier_size}.")
                 print(f"Solution found at depth: {current_node.get_g_cost()}.")
-                print(f"Time to finish: {timeTaken} second(s).")
+                print(f"Time to finish: {round(timeTaken,2)} second(s).")
                 break
 
             self.current_frontier.discard(current_node)
