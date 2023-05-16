@@ -1,13 +1,22 @@
 class Node:
     def __init__(self, state):
         self.state = state
-        self.zero_pos = None
+        
         self.length = len(self.state) #taking this will help us to change the code for other puzzle as well
-        self.find_zero()
+
 
         self.f_cost = 0
         self.g_cost = 0
         self.h_cost = 0
+
+        self.zero_i = -1
+        self.zero_j = -1
+
+        for i in range(self.length):
+            for j in range(self.length):
+                if self.state[i][j] == '0':
+                    self.zero_i = i
+                    self.zero_j = j
 
     def __repr__(self):
         return f"Node <{self.state}>"
@@ -15,30 +24,17 @@ class Node:
     def __lt__(self, otherNode):
         return self.f_cost < + otherNode.f_cost
 
-    #now we will find the index in grid with zero in it
-    def find_zero(self):
-        for i in range(self.length):
-            for j in range(self.length):
-                if self.state[i][j] == 0:
-                    self.zero_pos = (i, j)
-
     def get_state(self):
         return self.state
 
     def get_zero_pos(self):
-        return self.zero_pos
+        return (self.zero_i, self.zero_j)
 
     def print_state(self):
         for row in self.state:
             print(" ".join(str(x) for x in row))
     
-    def get_row_col(self, state, num):
-        row = 0
-        while num >= self.width:
-            num -= self.width
-            row += 1
-        col = num
-        return row, col
+    # def index()
 
     def set_f_cost(self, f_cost):
         self.f_cost = f_cost
